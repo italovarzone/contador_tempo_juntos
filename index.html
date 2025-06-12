@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lívia e Ítalo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #ffeef8 100%);
+            min-height: 100vh;
+        }
+        
+        .title-font {
+            font-family: 'Pacifico', cursive;
+        }
+        
+        .heart {
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .photo-container {
+            perspective: 1000px;
+        }
+        
+        .photo {
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .photo:hover {
+            transform: rotateY(15deg) scale(1.05);
+        }
+        
+        .counter-digit {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            box-shadow: 0 4px 15px rgba(255, 154, 158, 0.3);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .memoji {
+            transition: all 0.3s ease;
+        }
+        
+        .memoji:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+    </style>
+</head>
+<body class="text-pink-900">
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <h1 class="text-4xl md:text-6xl font-bold title-font mb-4 animate__animated animate__fadeInDown">
+                Lívia e Ítalo <i class="fas fa-heart text-red-500 heart"></i>
+            </h1>
+            <p class="text-xl md:text-2xl animate__animated animate__fadeIn animate__delay-1s">
+                Contando cada momento especial juntos
+            </p>
+        </header>
+
+        <!-- Main Counter -->
+        <div class="bg-white rounded-2xl shadow-xl p-6 mb-10 animate__animated animate__fadeInUp animate__delay-1s">
+            <h2 class="text-2xl md:text-3xl font-semibold text-center mb-6">
+                Nós estamos juntos há:
+            </h2>
+            
+            <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-8">
+                <!-- Years -->
+                <div class="flex flex-col items-center">
+                    <div class="counter-digit text-3xl md:text-5xl font-bold rounded-lg w-16 md:w-24 h-16 md:h-24 flex items-center justify-center mb-2">
+                        <span id="years">00</span>
+                    </div>
+                    <span class="text-sm md:text-base">Anos</span>
+                </div>
+                
+                <!-- Days -->
+                <div class="flex flex-col items-center">
+                    <div class="counter-digit text-3xl md:text-5xl font-bold rounded-lg w-16 md:w-24 h-16 md:h-24 flex items-center justify-center mb-2">
+                        <span id="days">00</span>
+                    </div>
+                    <span class="text-sm md:text-base">Dias</span>
+                </div>
+                
+                <!-- Hours -->
+                <div class="flex flex-col items-center">
+                    <div class="counter-digit text-3xl md:text-5xl font-bold rounded-lg w-16 md:w-24 h-16 md:h-24 flex items-center justify-center mb-2">
+                        <span id="hours">00</span>
+                    </div>
+                    <span class="text-sm md:text-base">Horas</span>
+                </div>
+                
+                <!-- Minutes -->
+                <div class="flex flex-col items-center">
+                    <div class="counter-digit text-3xl md:text-5xl font-bold rounded-lg w-16 md:w-24 h-16 md:h-24 flex items-center justify-center mb-2">
+                        <span id="minutes">00</span>
+                    </div>
+                    <span class="text-sm md:text-base">Minutos</span>
+                </div>
+                
+                <!-- Seconds -->
+                <div class="flex flex-col items-center">
+                    <div class="counter-digit text-3xl md:text-5xl font-bold rounded-lg w-16 md:w-24 h-16 md:h-24 flex items-center justify-center mb-2">
+                        <span id="seconds">00</span>
+                    </div>
+                    <span class="text-sm md:text-base">Segundos</span>
+                </div>
+            </div>
+            
+            <!-- Miliseconds -->
+            <div class="text-center animate__animated animate__fadeIn animate__delay-2s">
+                <span class="text-xl md:text-2xl font-medium">
+                    e <span id="milliseconds" class="text-pink-600 font-bold">000</span> milissegundos
+                </span>
+            </div>
+        </div>
+
+        <!-- Date Info -->
+        <div class="bg-white rounded-2xl shadow-xl p-6 mb-10 animate__animated animate__fadeInUp animate__delay-1s">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="text-center md:text-left">
+                    <h3 class="text-2xl font-semibold mb-4 title-font">Começo da Nossa História</h3>
+                    <p class="mb-2">
+                        <i class="fas fa-calendar-day text-pink-500 mr-2"></i>
+                        Data do início: <span id="start-date" class="font-bold">XX/XX/XXXX</span>
+                    </p>
+                </div>
+                <div class="flex justify-center">
+                    <div class="photo-container">
+                        <img src="/assets/4.png" 
+                             alt="Casal feliz" 
+                             class="photo w-64 h-64 object-cover rounded-xl shadow-md">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gallery -->
+        <div class="bg-white rounded-2xl shadow-xl p-6 mb-10 animate__animated animate__fadeInUp animate__delay-2s">
+            <h3 class="text-2xl font-semibold mb  -6 text-center title-font mb-5">Nossos Melhores Momentos</h3>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="photo-container">
+                    <img src="/assets/5.png" 
+                         alt="Momento feliz 1" 
+                         class="photo w-full h-48 object-cover rounded-lg shadow-md hover:shadow-xl transition">
+                </div>
+                
+                <div class="photo-container">
+                    <img src="/assets/2.png" 
+                         alt="Momento feliz 2" 
+                         class="photo w-full h-48 object-cover rounded-lg shadow-md hover:shadow-xl transition">
+                </div>
+                
+                <div class="photo-container">
+                    <img src="/assets/3.png" 
+                         alt="Momento feliz 3" 
+                         class="photo w-full h-48 object-cover rounded-lg shadow-md hover:shadow-xl transition">
+                </div>
+            </div>
+        </div>
+
+        <!-- Anniversary Counter -->
+        <div class="bg-pink-50 rounded-2xl shadow-xl p-6 mb-10 animate__animated animate__fadeInUp animate__delay-2s">
+            <h3 class="text-2xl font-semibold mb-6 text-center title-flex items-center justify-center">
+                <i class="fas fa-gift text-pink-500 mr-2 floating"></i>
+                Próximo Aniversário
+                <i class="fas fa-gift text-pink-500 ml-2 floating"></i>
+            </h3>
+            
+            <div class="flex flex-wrap justify-center gap-4">
+                <div class="flex flex-col items-center">
+                    <div class="bg-gradient-to-r from-pink-500 to-red-500 text-white text-xl md:text-2xl font-bold rounded-full w-16 h-16 md:w-20 md:h-20 flex items-center justify-center mb-2">
+                        <span id="next-anniv-days">00</span>
+                    </div>
+                    <span class="text-sm md:text-base">Dias</span>
+                </div>
+                
+                <div class="flex flex-col items-center">
+                    <div class="bg-gradient-to-r from-pink-500 to-red-500 text-white text-xl md:text-2xl font-bold rounded-full w-16 h-16 md:w-20 md:h-20 flex items-center justify-center mb-2">
+                        <span id="next-anniv-hours">00</span>
+                    </div>
+                    <span class="text-sm md:text-base">Horas</span>
+                </div>
+                
+                <div class="flex flex-col items-center">
+                    <div class="bg-gradient-to-r from-pink-500 to-red-500 text-white text-xl md:text-2xl font-bold rounded-full w-16 h-16 md:w-20 md:h-20 flex items-center justify-center mb-2">
+                        <span id="next-anniv-minutes">00</span>
+                    </div>
+                    <span class="text-sm md:text-base">Minutos</span>
+                </div>
+            </div>
+            
+            <div class="text-center mt-6">
+                <p class="text-lg">
+                    Nosso próximo aniversário será em <span class="font-bold text-pink-600" id="next-anniv-date">XX de XXXXXXXX</span>!
+                </p>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="text-center mt-12 text-gray-600 animate__animated animate__fadeIn animate__delay-3s">
+            <p class="text-sm">
+                Feito com <i class="fas fa-heart text-red-500"></i> para o amor da minha vida, Lívia
+            </p>
+            <p class="text-xs mt-2">
+                Atualizado em tempo real - Cada segundo ao seu lado é especial
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        const startDate = new Date(2024, 1, 23, 23, 26); // 23 de Novembro de 2024 as 23:26
+        
+        document.getElementById('start-date').textContent = startDate.toLocaleDateString('pt-BR');
+        
+        const nextAnniversary = new Date();
+        nextAnniversary.setFullYear(startDate.getFullYear() + 1);
+        nextAnniversary.setMonth(startDate.getMonth());
+        nextAnniversary.setDate(startDate.getDate());
+        nextAnniversary.setHours(0, 0, 0, 0);
+
+        const options = { day: 'numeric', month: 'long' };
+        document.getElementById('next-anniv-date').textContent = 
+            nextAnniversary.toLocaleDateString('pt-BR', options);
+        
+        function updateCounters() {
+            const now = new Date();
+            const diff = now - startDate;
+            const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+            const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            const milliseconds = Math.floor(diff % 1000);
+            
+            let nextAnnivDiff = nextAnniversary - now;
+            if (nextAnnivDiff < 0) {
+                nextAnniversary.setFullYear(nextAnniversary.getFullYear() + 1);
+                nextAnnivDiff = nextAnniversary - now;
+            }
+            
+            const annivDays = Math.floor(nextAnnivDiff / (1000 * 60 * 60 * 24));
+            const annivHours = Math.floor((nextAnnivDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const annivMinutes = Math.floor((nextAnnivDiff % (1000 * 60 * 60)) / (1000 * 60));
+            
+            document.getElementById('years').textContent = years.toString().padStart(2, '0');
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            document.getElementById('milliseconds').textContent = milliseconds.toString().padStart(3, '0');
+            
+            document.getElementById('next-anniv-days').textContent = annivDays.toString().padStart(2, '0');
+            document.getElementById('next-anniv-hours').textContent = annivHours.toString().padStart(2, '0');
+            document.getElementById('next-anniv-minutes').textContent = annivMinutes.toString().padStart(2, '0');
+        }
+        
+        updateCounters();
+        setInterval(updateCounters, 1);
+        
+        function addRandomAnimations() {
+            const elements = document.querySelectorAll('.memoji, .photo');
+            const animations = [
+                'animate__pulse', 'animate__rubberBand', 'animate__swing', 
+                'animate__tada', 'animate__wobble', 'animate__jello'
+            ];
+            
+            elements.forEach(element => {
+                element.addEventListener('mouseenter', () => {
+                    const randomAnim = animations[Math.floor(Math.random() * animations.length)];
+                    element.classList.add('animate__animated', randomAnim);
+                    
+                    setTimeout(() => {
+                        element.classList.remove('animate__animated', randomAnim);
+                    }, 1000);
+                });
+            });
+        }
+        
+        document.addEventListener('DOMContentLoaded', addRandomAnimations);
+    </script>
+</body>
+</html>
